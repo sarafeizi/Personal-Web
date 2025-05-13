@@ -85,7 +85,7 @@ const Contact = () => {
 
   return (
     <div className="contact-container" id="contact">
-      <h3>{t("tamas")}</h3>
+      <h2>{t("tamas")}</h2>
       {submitted && <Message severity="success" text={t("done")} />}
       <Steps model={steps} activeIndex={activeIndex} readOnly={isNextDisabled} />
 

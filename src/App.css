@@ -32,10 +32,14 @@
   }
 }
 
-
-.read-the-docs {
-  color: #888;
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.3s ease;
 }
-p{
-  color: #333;
+
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+  transition: all 0.3s ease;
 }

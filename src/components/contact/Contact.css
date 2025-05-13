@@ -11,7 +11,6 @@
   width: 55px;
   height: 55px;
   margin: 10px;
-  color: black;
 }
 
 .p-field label {
@@ -76,6 +75,10 @@ form{
 .p-inputtext{
   font-size: 1.2rem;
 }
-.ql-formats {
-  background-color: white !important;
+body.dark .p-steps .p-steps-item .p-menuitem-link , body.dark .p-steps-title{
+  background-color: #1e1e1e !important;
+  color: #ffffff;
+}
+.p-button-link{
+  color: #333;
 }
