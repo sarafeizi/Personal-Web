@@ -3,3 +3,17 @@
     text-align: center; /* مرکز چین کردن متن h2 */
     margin-bottom: 20px; /* فاصله از پایین برای زیبایی */
 }
+body.light .p-card {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  body.dark .p-card {
+    background-color: #1e1e1e; /* رنگ تیره برای دارک مود */
+    color: #ffffff;
+  }
+/* رنگ آیکون در لایت مود */
+body.light .pi-graduation-cap , body.light .pi-book, body.dark .pi-graduation-cap ,body.dark .pi-book {
+    color: #000000; /* رنگ سبز برای آیکون */
+  }
+ 

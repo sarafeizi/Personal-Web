@@ -124,6 +124,28 @@ button{
 .project-card button{
   color: white;
 }
-h3{
+
+/* تغییرات برای لایت مود */
+body.light .project-card {
+  background: linear-gradient(145deg, #ffffff, #e0e0e0);
   color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* تغییرات برای دارک مود */
+body.dark .project-card {
+  background: linear-gradient(145deg, #1e1e1e, #2c2c2c); /* بک‌گراند تیره برای دارک مود */
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+/* برای دکمه‌های قبلی و بعدی در لایت مود */
+body.light .p-carousel-prev, body.light .p-carousel-next {
+  background-color: transparent !important;  /* حذف بک‌گراند */
+  color: #333 !important;  /* رنگ متن مطابق با تم لایت */
+}
+
+/* برای دکمه‌های قبلی و بعدی در دارک مود */
+body.dark .p-carousel-prev, body.dark .p-carousel-next {
+  background-color: transparent !important;  /* حذف بک‌گراند */
+  color: #fff !important;  /* رنگ متن مطابق با تم دارک */
 }
