@@ -1,0 +1,62 @@
+.about-me-container {
+  max-width: 90%; /* ایجاد فاصله از دیواره‌ها */
+  margin: 0 auto; /* وسط‌چین کردن */
+  padding: 20px 30px; /* فضای داخلی مناسب */
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  text-align: right;
+  transition: height 0.3s ease-in-out;
+  margin-bottom: 20px;
+  border-radius: 8px; /* اضافه کردن گوشه‌های گرد */
+}
+
+.about-me-container h2 {
+  text-align: center;
+  color: #4CAF50;
+  margin-bottom: 20px; /* فاصله از متن قبلی */
+}
+
+.about-me-container p {
+  line-height: 1.6; /* افزایش فاصله بین خطوط */
+  margin-bottom: 20px; /* فاصله از پاراگراف‌های بعدی */
+}
+
+.about-me-container ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.about-me-container ul li {
+  background: #eef9f0;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* سایه نرم برای زیباتر شدن */
+}
+
+.about-me-container ul li:hover {
+  background: #d3f8d4;
+}
+
+@media (max-width: 768px) {
+  .about-me-container {
+      max-width: 95%; /* فاصله کمتر در موبایل */
+      padding: 15px;
+  }
+  
+  .about-me-container.collapsed {
+      height: 70vh; /* ارتفاع کمتر برای حالت بسته در موبایل */
+  }
+}
+/* راست‌چین برای فارسی */
+.about-me-container.rtl {
+  text-align: right;
+  direction: rtl;
+}
+
+/* چپ‌چین برای انگلیسی */
+.about-me-container.ltr {
+  text-align: left;
+  direction: ltr;
+}

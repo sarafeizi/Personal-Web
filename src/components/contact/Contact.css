@@ -1,0 +1,81 @@
+.map-container,
+.form-container {
+  flex: 1;
+  min-width: 45%; /* عرض حداقل 45% برای هر بخش */
+}
+
+.p-button-link {
+  border-radius: 50px;
+  background-color: #7dc8fa;
+  padding: 0;
+  width: 55px;
+  height: 55px;
+  margin: 10px;
+  color: black;
+}
+
+.p-field label {
+  margin-right: 10px; /* فاصله بین لیبل و ورودی */
+}
+
+.p-field-editor {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+
+/* ریسپانسیو برای موبایل */
+@media (max-width: 768px) {
+  .p-field-editor {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 15px;
+  }
+
+  .input-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .map-container,
+  .form-container {
+    min-width: 100%; /* در موبایل، هر بخش تمام عرض را بگیرد */
+  }
+}
+
+.p-tooltip {
+  font-size: 10px; /* اندازه فونت تولتیپ */
+  padding: 8px; /* فاصله داخلی تولتیپ */
+}
+
+.input-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.map {
+  width: 90%;
+}
+form{
+  margin-top: 3%;
+}
+
+.p-error {
+  margin-top: 5px;
+  color: red;
+  font-size: 14px;
+}
+.email-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+.p-inputtext{
+  font-size: 1.2rem;
+}
+.ql-formats {
+  background-color: white !important;
+}

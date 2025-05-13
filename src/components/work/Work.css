@@ -1,0 +1,48 @@
+.work-experience-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* راست‌چین برای فارسی */
+.work-experience-container.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+/* چپ‌چین برای انگلیسی */
+.work-experience-container.ltr {
+    direction: ltr;
+    text-align: left;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.experience-item {
+    display: flex;
+    align-items: center;
+}
+
+.experience-title {
+    width: 30%;
+    font-weight: bold;
+}
+
+.vertical-line {
+    width: 2px;
+    background-color: #4CAF50;
+    height: 100px;
+    margin: 0 20px;
+}
+
+.experience-details {
+    width: 60%;
+}
+.experience-title{
+    color: #333;
+}
