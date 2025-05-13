@@ -14,11 +14,9 @@
 .project-card {
   background: linear-gradient(145deg, #ffffff, #e0e0e0);
   border-radius: 16px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.6);
   padding: 20px;
   transition: all 0.3s ease-in-out;
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   margin: 15px; /* فاصله بین کارت‌ها در حالت دسکتاپ */
   height: 350px; /* ارتفاع ثابت برای کارت‌ها */
   display: flex;
@@ -71,7 +69,6 @@
 
 /* استایل برای دکمه‌ها */
 .p-button-outlined {
-  border: 2px solid #95b4e6;
   color: #95b4e6;
   transition: all 0.3s ease-in-out;
 }
@@ -129,14 +126,12 @@ button{
 body.light .project-card {
   background: linear-gradient(145deg, #ffffff, #e0e0e0);
   color: #333;
-  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* تغییرات برای دارک مود */
 body.dark .project-card {
   background: linear-gradient(145deg, #1e1e1e, #2c2c2c); /* بک‌گراند تیره برای دارک مود */
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 /* برای دکمه‌های قبلی و بعدی در لایت مود */
 body.light .p-carousel-prev, body.light .p-carousel-next {

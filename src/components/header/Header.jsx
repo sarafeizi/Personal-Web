@@ -20,8 +20,10 @@ export default function QuarterCircleDemo() {
       <main className="main-content">
         <h1>{t('welcome')}</h1>
         <p>{t('name')}</p>
+        <div className='buttonlan'>
         <button onClick={() => i18n.changeLanguage('fa')}>فارسی</button>
         <button onClick={() => i18n.changeLanguage('en')}>English</button>
+        </div>
       </main>
       <div style={{ position: 'relative', height: '500px' }}>
         <Toast ref={toast} />

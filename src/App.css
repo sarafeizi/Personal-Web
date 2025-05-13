@@ -43,3 +43,8 @@ body.dark {
   color: #ffffff;
   transition: all 0.3s ease;
 }
+button {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}

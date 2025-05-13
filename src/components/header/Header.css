@@ -117,3 +117,8 @@
 .pi {
   font-family: 'primeicons', sans-serif !important;
 }
+.buttonlan{
+  margin-top: 10%;
+  display: flex;
+  justify-content: space-evenly;
+}
