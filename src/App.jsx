@@ -7,12 +7,10 @@ import Education from '../src/components/education/Education';
 import Projects from '../src/components/project/Projects';
 import Skills from '../src/components/skills/Skills';
 import Work from '../src/components/work/Work';
-
-// ایمپورت کامپوننت پرایم‌ری‌اکت
 import { InputSwitch } from 'primereact/inputswitch';
-import 'primereact/resources/themes/lara-light-indigo/theme.css'; // تم
-import 'primereact/resources/primereact.min.css'; // استایل کلی
-import 'primeicons/primeicons.css'; // آیکون‌ها
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -32,19 +30,10 @@ function App() {
 
   return (
     <>
-      <div style={{
-        position: 'fixed',
-        top: '1rem',
-        right: '1rem',
-        zIndex: 999,
-        display: 'flex',
-        alignItems: 'center',
-        gap: '0.5rem',
-      }}>
+      <div className='darklight'>
         <span style={{ fontSize: '0.9rem' }}>{theme === 'light' ? '☀️' : '🌙'}</span>
         <InputSwitch checked={theme === 'dark'} onChange={toggleTheme} />
       </div>
-
       <Header />
       <AboutMe />
       <Work />

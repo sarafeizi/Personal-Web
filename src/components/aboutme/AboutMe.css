@@ -1,23 +1,17 @@
 .about-me-container {
-  max-width: 90%; /* ایجاد فاصله از دیواره‌ها */
-  margin: 0 auto; /* وسط‌چین کردن */
-  padding: 20px 30px; /* فضای داخلی مناسب */
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 20px 30px;
   font-family: 'Arial', sans-serif;
   text-align: right;
   transition: height 0.3s ease-in-out;
   margin-bottom: 20px;
-  border-radius: 8px; /* اضافه کردن گوشه‌های گرد */
-}
-
-.about-me-container h2 {
-  text-align: center;
-  color: #4CAF50;
-  margin-bottom: 20px; /* فاصله از متن قبلی */
+  border-radius: 8px;
 }
 
 .about-me-container p {
-  line-height: 1.6; /* افزایش فاصله بین خطوط */
-  margin-bottom: 20px; /* فاصله از پاراگراف‌های بعدی */
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .about-me-container ul {
@@ -31,34 +25,97 @@
   margin: 8px 0;
   border-radius: 8px;
   transition: background 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* سایه نرم برای زیباتر شدن */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .about-me-container ul li:hover {
   background: #d3f8d4;
 }
 
-@media (max-width: 768px) {
-  .about-me-container {
-      max-width: 95%; /* فاصله کمتر در موبایل */
-      padding: 15px;
-  }
-  
-  .about-me-container.collapsed {
-      height: 70vh; /* ارتفاع کمتر برای حالت بسته در موبایل */
-  }
-}
-/* راست‌چین برای فارسی */
 .about-me-container.rtl {
   text-align: right;
   direction: rtl;
 }
 
-/* چپ‌چین برای انگلیسی */
 .about-me-container.ltr {
   text-align: left;
   direction: ltr;
 }
-button{
-  color: #ffffff;
+
+.centered-container.rtl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: right;
+  direction: rtl;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.centered-container.ltr {
+  flex-direction: row-reverse;
+  direction: rtl;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.responsive-image {
+  width: 170px;
+  height: auto;
+  border-radius: 12px;
+  transition: width 0.3s ease;
+}
+
+.responsive-text {
+  width: 70%;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+@media (max-width: 1000px) {
+
+  .centered-container.ltr,
+  .centered-container.rtl {
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+  }
+
+  .responsive-image {
+    width: 60vw;
+    max-width: 300px;
+  }
+
+  .responsive-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-me-container {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .about-me-container.collapsed {
+    height: 70vh;
+  }
 }

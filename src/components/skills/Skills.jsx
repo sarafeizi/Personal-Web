@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Knob } from 'primereact/knob';
 import '../skills/Skills.css';
-import { blue, blueGrey } from '@mui/material/colors';
 import { useTranslation } from 'react-i18next';
 const Skills = () => {
   const { t } = useTranslation();
@@ -18,16 +17,16 @@ const Skills = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible'); // اضافه کردن کلاس "visible" به آیتم‌های دیده‌شده
+          entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.5 }); // 50% از آیتم باید دیده بشه تا انیمیشن فعال بشه
+    }, { threshold: 0.5 });
 
     const skillItems = document.querySelectorAll('.skill-item');
-    skillItems.forEach((item) => observer.observe(item)); // آغاز مشاهده هر آیتم
+    skillItems.forEach((item) => observer.observe(item));
 
     return () => {
-      skillItems.forEach((item) => observer.unobserve(item)); // پاک کردن مشاهده وقتی که کامپوننت حذف می‌شه
+      skillItems.forEach((item) => observer.unobserve(item));
     };
   }, []);
 
@@ -37,7 +36,7 @@ const Skills = () => {
       <div className="skills-grid">
         {skills.map((skill, index) => (
           <div key={index} className="skill-item">
-            <Knob value={skill.value} showValue={true} valueTemplate="{value}%" size={100} valueColor="#d3b0f5" />
+            <Knob value={skill.value} showValue={true} valueTemplate="{value}%" size={100} valueColor="#7BC9D6" />
             <p>{skill.name}</p>
           </div>
         ))}

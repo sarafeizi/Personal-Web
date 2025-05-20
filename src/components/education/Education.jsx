@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Timeline } from 'primereact/timeline';
 import { Card } from 'primereact/card';
 import { Tag } from 'primereact/tag';
@@ -8,6 +8,8 @@ import "../education/Education.css";
 
 const Education = () => {
   const { t } = useTranslation();
+  const [visibleItems, setVisibleItems] = useState([]);
+  const itemRefs = useRef([]);
 
   const events = [
     {
@@ -26,6 +28,31 @@ const Education = () => {
     }
   ];
 
+  useEffect(() => {
+    itemRefs.current = itemRefs.current.slice(0, events.length);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setVisibleItems((prev) => {
+              const newVisible = [...prev];
+              newVisible[index] = true;
+              return newVisible;
+            });
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    itemRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, [events.length]);
+
   const customizedMarker = (item) => {
     return (
       <Avatar
@@ -36,15 +63,23 @@ const Education = () => {
     );
   };
 
-  const customizedContent = (item) => {
+  const customizedContent = (item, index) => {
+    const position = index % 2 === 0 ? "left" : "right";
+    const visible = visibleItems[index] ? "fade-in" : "hidden";
     return (
-      <Card title={item.status} subTitle={item.date} className="w-full md:max-w-lg shadow-md">
-        <p className="font-semibold">{item.university}</p>
-        <p className="text-gray-600">{item.description}</p>
-        <Tag value={item.status} severity="success" className="mt-2" />
-      </Card>
+      <div
+        ref={(el) => (itemRefs.current[index] = el)}
+        className={`animated-card ${position} ${visible}`}
+      >
+        <Card title={item.status} subTitle={item.date} className="w-full md:max-w-lg shadow-md">
+          <p className="font-semibold">{item.university}</p>
+          <p className="text-gray-600">{item.description}</p>
+          <Tag value={item.status} severity="success" className="mt-2" />
+        </Card>
+      </div>
     );
   };
+  
 
   return (
     <div id="education" className="container mx-auto px-4 py-16">
@@ -53,7 +88,7 @@ const Education = () => {
         value={events}
         align="alternate md:left"
         marker={customizedMarker}
-        content={customizedContent}
+        content={(item, index) => customizedContent(item, index)}
         className="gap-4"
       />
     </div>

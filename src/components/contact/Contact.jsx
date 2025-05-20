@@ -22,7 +22,8 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === 'fa';
 
   const steps = [
     { label: t("namee") },
@@ -42,6 +43,15 @@ const Contact = () => {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (!isNextDisabled && activeIndex < steps.length - 1) {
+        handleNext();
+      }
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.trim() && email.trim() && message.trim()) {
@@ -49,21 +59,37 @@ const Contact = () => {
       const templateParams = {
         from_name: name,
         from_email: email,
-        message: message
+        message: message,
       };
-      emailjs.send('service_e8i43fe', 'template_ybpxix6', templateParams, 'LG3YyICqYO0suRUf1')
+
+      emailjs
+        .send('service_e8i43fe', 'template_ybpxix6', templateParams, 'LG3YyICqYO0suRUf1')
         .then((response) => {
           console.log('Success:', response);
+
+          const thankYouParams = {
+            to_name: name,
+            to_email: email,
+          };
+
+          emailjs
+            .send('service_e8i43fe', 'thank_you_template_id', thankYouParams, 'LG3YyICqYO0suRUf1')
+            .then(
+              (response) => {
+                console.log('Auto-reply sent:', response);
+              },
+              (error) => {
+                console.log('Error sending auto-reply:', error);
+              }
+            );
         }, (error) => {
           console.log('Error:', error);
         });
-      // پاک کردن مقادیر فرم و بازگشت به مرحله اول
+
       setName("");
       setEmail("");
       setMessage("");
       setActiveIndex(0);
-
-      // مخفی کردن پیام موفقیت بعد از چند ثانیه (اختیاری)
       setTimeout(() => setSubmitted(false), 3000);
     }
   };
@@ -73,31 +99,34 @@ const Contact = () => {
     return emailRegex.test(email);
   };
 
-  // بررسی وضعیت دکمه "Next"
   const isNextDisabled =
     (activeIndex === 0 && !name.trim()) ||
     (activeIndex === 1 && (!email.trim() || !isValidEmail(email))) ||
     (activeIndex === 2 && !message.trim());
 
-  // بررسی وضعیت دکمه "Send"
   const isSendDisabled = !name.trim() || !isValidEmail(email) || !message.trim();
-
 
   return (
     <div className="contact-container" id="contact">
       <h2>{t("tamas")}</h2>
       {submitted && <Message severity="success" text={t("done")} />}
-      <Steps model={steps} activeIndex={activeIndex} readOnly={isNextDisabled} />
+      <Steps model={steps} activeIndex={activeIndex} readOnly={isNextDisabled}  className={isRTL ? "rtl-steps" : "ltr-steps"}/>
 
       <form onSubmit={handleSubmit}>
         {activeIndex === 0 && (
           <div className="p-field">
-            <InputText id="name" value={name} onChange={(e) => setName(e.target.value)} required placeholder={t("getname")} />
+            <InputText
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              placeholder={t("getname")}
+              onKeyDown={handleKeyDown}
+            />
           </div>
         )}
         {activeIndex === 1 && (
           <div className="p-field email-field">
-
             <InputText
               id="email"
               value={email}
@@ -105,12 +134,12 @@ const Contact = () => {
               required
               placeholder={t("getemail")}
               className={email && !isValidEmail(email) ? "p-invalid" : ""}
+              onKeyDown={handleKeyDown}
             />
             {email && !isValidEmail(email) && (
               <small className="p-error">{t("invalidEmail")}</small>
             )}
           </div>
-
         )}
         {activeIndex === 2 && (
           <div className="p-field-editor">
@@ -125,16 +154,34 @@ const Contact = () => {
         )}
 
         <div className="step-buttons" style={{ marginTop: "20px" }}>
-          {activeIndex > 0 && <Button label={t("previous")} icon="pi pi-chevron-left" onClick={handlePrev} className="p-button-secondary" />}
+          {activeIndex > 0 && (
+            <Button
+              label={t("previous")}
+              icon="pi pi-chevron-left"
+              onClick={handlePrev}
+              className="p-button-secondary"
+            />
+          )}
           {activeIndex < steps.length - 1 ? (
-            <Button label={t("next")} icon="pi pi-chevron-right" onClick={handleNext} className="p-button-primary" disabled={isNextDisabled} />
+            <Button
+              label={t("next")}
+              icon="pi pi-chevron-right"
+              onClick={handleNext}
+              className="p-button-primary"
+              disabled={isNextDisabled}
+            />
           ) : (
-            <Button label={t("send")} icon="pi pi-send" type="submit" className="p-button-success" disabled={isSendDisabled} />
+            <Button
+              label={t("send")}
+              icon="pi pi-send"
+              type="submit"
+              className="p-button-success"
+              disabled={isSendDisabled}
+            />
           )}
         </div>
       </form>
 
-      {/* نقشه تهران */}
       <div className="map-container">
         <h4>{t('loc')}</h4>
         <MapContainer center={[35.748104, 51.450577]} zoom={12} scrollWheelZoom={false} style={{ height: '300px', width: '50%', margin: '0 auto' }}>
@@ -143,9 +190,7 @@ const Contact = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
           <Marker position={[35.748104, 51.450577]}>
-            <Popup>
-              {t('tehran')}
-            </Popup>
+            <Popup>{t('tehran')}</Popup>
           </Marker>
         </MapContainer>
       </div>
@@ -157,8 +202,7 @@ const Contact = () => {
           <a
             href="https://drive.google.com/file/d/1LNQO7sCmqyCFlifHFB5rIfD5VIBV2swV/view?usp=sharing"
             target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none", color: "#007bff", fontWeight: "bold" }}
+            rel="noopener noreferrer" className='link'
           >
             {'https://drive.google.com/ ...'}
           </a>
@@ -171,13 +215,7 @@ const Contact = () => {
           <Button icon={<FaLinkedin />} tooltip={t('linkdin')} className="p-button-link" onClick={() => window.open("https://www.linkedin.com/in/sara-feyzi-ba88b6238/", "_blank")} />
           <Button icon={<FaGithub />} tooltip={t('github')} className="p-button-link" onClick={() => window.open("https://github.com/sarafeizi", "_blank")} />
           <Button icon={<FaInstagram />} tooltip={t('instagram')} className="p-button-link" onClick={() => window.open("https://www.instagram.com/sarafz99", "_blank")} />
-          <Button icon={<FaMicrosoft />}
-            tooltip={t('teams')}
-            className="p-button-link"
-            onClick={() =>
-              window.open("https://teams.microsoft.com/l/chat/0/0?users=sarafz9978@gmail.com", "_blank")
-            } />
-
+          <Button icon={<FaMicrosoft />} tooltip={t('teams')} className="p-button-link" onClick={() => window.open("https://teams.microsoft.com/l/chat/0/0?users=sarafz9978@gmail.com", "_blank")} />
         </div>
       </div>
     </div>

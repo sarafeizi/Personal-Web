@@ -4,100 +4,59 @@
   align-items: center;
 }
 
-/* تنظیمات ریسپانسیو */
 .p-carousel-content {
-  gap: 20px; /* فاصله بین کارت‌ها */
+  gap: 20px;
   display: flex;
-  justify-content: center; /* مرکز کردن کارت‌ها */
+  justify-content: center;
 }
 
 .project-card {
-  background: linear-gradient(145deg, #ffffff, #e0e0e0);
-  border-radius: 16px;
-  padding: 20px;
+  position: relative;
   transition: all 0.3s ease-in-out;
   text-align: center;
-  margin: 15px; /* فاصله بین کارت‌ها در حالت دسکتاپ */
-  height: 350px; /* ارتفاع ثابت برای کارت‌ها */
+  margin: 10px;
+  height: 410px;
+  border-radius: 1rem;
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* تنظیم فاصله‌های داخل کارت */
+  justify-content: space-between;
   align-items: center;
-}
-
-/* برای حالت موبایل */
-@media (max-width <= 768px) {
-  .projects-container {
-    text-align: center;
-    padding: 40px;
-    align-items: center;
-    display: flex;
-    justify-content: center; /* مرکز کردن محتوا */
-    flex-direction: column; /* قرار گرفتن محتوا به صورت ستونی */
-    overflow: hidden; /* جلوگیری از اسکرول افقی */
-  }
-  
-  /* تنظیمات ریسپانسیو */
-  .p-carousel-content {
-    display: flex;
-    justify-content: center; /* مرکز کردن کارت‌ها */
-    flex-wrap: wrap; /* کارت‌ها را در چند خط قرار می‌دهیم */
-    gap: 20px; /* فاصله بین کارت‌ها */
-    overflow: hidden; /* جلوگیری از اسکرول افقی */
-  }
-  
-  .p-carousel-content {
-    justify-content: center; /* کارت‌ها را در وسط قرار می‌دهیم */
-    align-items: center; /* کارت‌ها را در مرکز صفحه قرار می‌دهیم */
-  }
-
-  .project-card {
-    height: auto; /* ارتفاع کارت‌ها خودکار باشد */
-    margin: 10px auto; /* فاصله عمودی برای کارت‌ها و مرکز شدن */
-    width: 50%; /* عرض کارت‌ها 90% */
-    flex: 0 1 100%; /* کارت‌ها به صورت ستونی در موبایل */
-  }
+  overflow: hidden;
+  z-index: 0;
 }
 
 
-
-/* کارت‌ها هنگام هاور */
 .project-card:hover {
   transform: translateY(-5px) scale(1.03);
   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* استایل برای دکمه‌ها */
 .p-button-outlined {
-  color: #95b4e6;
   transition: all 0.3s ease-in-out;
 }
 
-.p-button-outlined:hover {
-  background-color: #95b4e6;
-  color: white;
-}
-
-/* استایل دکمه‌های چرخشی */
-.p-carousel-prev, .p-carousel-next {
+.p-carousel-prev,
+.p-carousel-next {
   background-color: white !important;
-  color: black !important;
- font-size: 0px;
+  color: #333 !important;
+  font-size: 0px;
   border-radius: 50%;
   transition: all 0.3s ease-in-out;
 }
 
-.p-carousel-prev:hover, .p-carousel-next:hover {
+.p-carousel-prev:hover,
+.p-carousel-next:hover {
   transform: scale(1.1);
 }
 
-/* استایل دهی به کامپوننت Rating */
 .project-rating {
   margin-top: 10px;
-  color: #4CAF50; /* رنگ سبز برای ستاره‌ها */
+  color: #4CAF50;
 }
 
-/* پوزیشن‌دهی به دکمه‌ها و امتیاز */
 .rating-container {
   margin-top: 15px;
   display: flex;
@@ -106,41 +65,91 @@
 }
 
 .p-carousel-indicators .p-carousel-indicator button {
-  width: 12px;  /* اندازه دکمه‌ها رو کوچیک‌تر کنید */
-  height: 12px;  /* اندازه دکمه‌ها رو کوچیک‌تر کنید */
-  border-radius: 50%;  /* دایره‌ای بودن دکمه‌ها */
-  padding: 0;  /* حذف padding */
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  padding: 0;
 }
 
 .p-carousel-indicators .p-carousel-indicator.p-highlight button {
-  background-color: #4CAF50 !important;  /* رنگ دکمه انتخاب شده */
-}
-button{
-  background-color: #95b4e6 !important;
-}
-.project-card button{
-  color: white;
+  background-color: #4CAF50 !important;
 }
 
-/* تغییرات برای لایت مود */
-body.light .project-card {
-  background: linear-gradient(145deg, #ffffff, #e0e0e0);
+
+@media (max-width <=768px) {
+  .projects-container {
+    text-align: center;
+    padding: 40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .p-carousel-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow: hidden;
+  }
+
+  .p-carousel-content {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project-card {
+    height: auto;
+    margin: 10px auto;
+    width: 20%;
+    flex: 0 1 100%;
+
+  }
+}
+
+
+body.light .p-carousel-prev,
+body.light .p-carousel-next {
+  background-color: transparent !important;
+  color: #333 !important;
+}
+
+body.dark .p-carousel-prev,
+body.dark .p-carousel-next {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+
+
+bode.light h3,
+body.light button {
   color: #333;
 }
 
-/* تغییرات برای دارک مود */
-body.dark .project-card {
-  background: linear-gradient(145deg, #1e1e1e, #2c2c2c); /* بک‌گراند تیره برای دارک مود */
+bode.dark h3,
+body.dark button {
   color: #ffffff;
 }
-/* برای دکمه‌های قبلی و بعدی در لایت مود */
-body.light .p-carousel-prev, body.light .p-carousel-next {
-  background-color: transparent !important;  /* حذف بک‌گراند */
-  color: #333 !important;  /* رنگ متن مطابق با تم لایت */
+
+body.light .project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 1;
 }
 
-/* برای دکمه‌های قبلی و بعدی در دارک مود */
-body.dark .p-carousel-prev, body.dark .p-carousel-next {
-  background-color: transparent !important;  /* حذف بک‌گراند */
-  color: #fff !important;  /* رنگ متن مطابق با تم دارک */
+body.dark .project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.project-card>* {
+  position: relative;
+  z-index: 2;
 }

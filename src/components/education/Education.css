@@ -1,19 +1,44 @@
- h2 {
-    color: #4CAF50; /* تغییر رنگ متن h2 به سبز */
-    text-align: center; /* مرکز چین کردن متن h2 */
-    margin-bottom: 20px; /* فاصله از پایین برای زیبایی */
+.animated-card {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+  will-change: transform, opacity;
 }
+
+.animated-card.hidden {
+  opacity: 0;
+}
+
+.animated-card.fade-in {
+  opacity: 1;
+}
+
+.animated-card.left {
+  transform: translateX(50px);
+}
+
+.animated-card.right {
+  transform: translateX(-50px);
+}
+
+.animated-card.fade-in.left,
+.animated-card.fade-in.right {
+  transform: translateX(0);
+}
+
+
 body.light .p-card {
-    background-color: #ffffff;
-    color: #000000;
-  }
-  
-  body.dark .p-card {
-    background-color: #1e1e1e; /* رنگ تیره برای دارک مود */
-    color: #ffffff;
-  }
-/* رنگ آیکون در لایت مود */
-body.light .pi-graduation-cap , body.light .pi-book, body.dark .pi-graduation-cap ,body.dark .pi-book {
-    color: #000000; /* رنگ سبز برای آیکون */
-  }
- 
+   background-color: #ffffff;
+   color: #333;
+ }
+
+ body.dark .p-card {
+   background-color: #1e1e1e;
+   color: #ffffff;
+ }
+
+ body.light .pi-graduation-cap,
+ body.light .pi-book,
+ body.dark .pi-graduation-cap,
+ body.dark .pi-book {
+   color: #333;
+ }

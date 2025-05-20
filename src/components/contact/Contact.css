@@ -1,7 +1,7 @@
 .map-container,
 .form-container {
   flex: 1;
-  min-width: 45%; /* عرض حداقل 45% برای هر بخش */
+  min-width: 45%;
 }
 
 .p-button-link {
@@ -14,7 +14,7 @@
 }
 
 .p-field label {
-  margin-right: 10px; /* فاصله بین لیبل و ورودی */
+  margin-right: 10px;
 }
 
 .p-field-editor {
@@ -23,7 +23,65 @@
   margin-top: 15px;
 }
 
-/* ریسپانسیو برای موبایل */
+.p-tooltip {
+  font-size: 10px;
+  padding: 8px;
+}
+
+.input-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.map {
+  width: 90%;
+}
+
+form {
+  margin-top: 3%;
+}
+
+.p-error {
+  margin-top: 5px;
+  color: red;
+  font-size: 14px;
+}
+
+.email-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.p-inputtext {
+  font-size: 1.2rem;
+}
+
+.step-buttons button {
+  background-color: #7dc8fa;
+  margin: 0 10px;
+  color: #ffffff !important;
+}
+
+.p-button-success {
+  background-color: #4CAF50 !important;
+}
+
+.social-links button {
+  color: #ffffff !important;
+}
+
+.rtl-steps {
+  direction: ltr;
+}
+
+.rtl-steps {
+  direction: rtl;
+}
+
 @media (max-width: 768px) {
   .p-field-editor {
     width: 70%;
@@ -39,46 +97,60 @@
 
   .map-container,
   .form-container {
-    min-width: 100%; /* در موبایل، هر بخش تمام عرض را بگیرد */
+    min-width: 100%;
   }
 }
 
-.p-tooltip {
-  font-size: 10px; /* اندازه فونت تولتیپ */
-  padding: 8px; /* فاصله داخلی تولتیپ */
-}
-
-.input-row {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-.map {
-  width: 90%;
-}
-form{
-  margin-top: 3%;
-}
-
-.p-error {
-  margin-top: 5px;
-  color: red;
-  font-size: 14px;
-}
-.email-field {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-}
-.p-inputtext{
-  font-size: 1.2rem;
-}
-body.dark .p-steps .p-steps-item .p-menuitem-link , body.dark .p-steps-title{
-  background-color: #1e1e1e !important;
+body.dark .p-steps .p-steps-item .p-menuitem-link,
+body.dark .p-steps-title {
+  background-color: transparent;
   color: #ffffff;
 }
-.p-button-link{
+
+body.light .p-steps .p-steps-item .p-menuitem-link,
+body.light .p-steps-title {
+  background-color: transparent;
   color: #333;
+}
+
+body.dark .contact-container {
+  position: relative;
+  background-image: url(../../assets/31.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  z-index: 0;
+}
+
+body.light .contact-container {
+  position: relative;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(../../assets/14.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  z-index: 0;
+  transition: background 0.3s ease-in-out;
+}
+
+body.dark .contact-container {
+  background-image:
+    linear-gradient(rgba(128, 128, 128, 0.8), rgba(128, 128, 128, 0.8)),
+    url("../../assets/14.jpg");
+}
+
+.contact-container>* {
+  position: relative;
+  z-index: 2;
+}
+
+body.light .link {
+  color: #333;
+}
+
+body.dark .link {
+  color: #ffffff;
 }

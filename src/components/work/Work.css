@@ -5,13 +5,31 @@
     padding: 20px;
 }
 
-/* راست‌چین برای فارسی */
+.background {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+        url("../../assets/3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    transition: background 0.3s ease-in-out;
+}
+
+.dark .background {
+    background-image:
+        linear-gradient(rgba(128, 128, 128, 0.6), rgba(128, 128, 128, 0.6)),
+        url("../../assets/3.jpg");
+}
+
 .work-experience-container.rtl {
     direction: rtl;
     text-align: right;
 }
 
-/* چپ‌چین برای انگلیسی */
 .work-experience-container.ltr {
     direction: ltr;
     text-align: left;
@@ -43,3 +61,15 @@
 .experience-details {
     width: 60%;
 }
+.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  }
+  
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  }
+  

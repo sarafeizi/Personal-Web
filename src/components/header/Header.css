@@ -1,4 +1,3 @@
-/* انیمیشن باز شدن آیتم‌ها */
 @keyframes fadeInScale {
   0% {
     opacity: 0;
@@ -11,7 +10,6 @@
   }
 }
 
-/* انیمیشن بسته شدن آیتم‌ها */
 @keyframes fadeOutScale {
   0% {
     opacity: 1;
@@ -24,17 +22,14 @@
   }
 }
 
-/* اعمال انیمیشن باز شدن */
 .p-speeddial-opened .p-speeddial-action {
   animation: fadeInScale 0.3s ease-in-out forwards;
 }
 
-/* اعمال انیمیشن بسته شدن */
 .p-speeddial-closed .p-speeddial-action {
   animation: fadeOutScale 0.3s ease-in-out forwards;
 }
 
-/* ایجاد تأخیر بین آیتم‌ها */
 .p-speeddial-opened .p-speeddial-item:nth-child(1) .p-speeddial-action {
   animation-delay: 0.1s;
 }
@@ -47,14 +42,10 @@
   animation-delay: 0.3s;
 }
 
-/* آیتم‌های SpeedDial هنگام بسته شدن */
 .p-speeddial:not(.p-speeddial-opened) .p-speeddial-action {
   animation: fadeOutScale 0.3s ease-in-out forwards;
 }
 
-
-
-/* استایل هدر */
 .header-container {
   width: 100%;
   position: fixed;
@@ -64,61 +55,65 @@
   text-align: right;
 }
 
-/* محتوای اصلی */
 .card {
   display: flex;
   flex-direction: column;
-  /* برای قرار گرفتن متن‌ها به صورت عمودی */
   justify-content: center;
-  /* وسط‌چین کردن عمودی */
   align-items: center;
-  /* وسط‌چین کردن افقی */
   height: 100vh;
-  /* برای اینکه تمام صفحه را بپوشاند */
   text-align: center;
-  /* برای مرکز کردن متن‌ها */
-  background-color: #d8f7a6;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
-.main-content {
-  position: relative;
-  top: 25%;
-}
-
-/* قرار دادن SpeedDial در بالا سمت چپ */
 .custom-speed-dial {
   position: fixed;
   top: 20px;
   left: 20px;
 }
 
-/* دکمه‌های SpeedDial */
-.p-speeddial-button {
-  background-color: #4CAF50;
-  border-radius: 50%;
-  outline: none;
-  box-shadow: none;
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-/* تغییر شکل دکمه SpeedDial وقتی باز می‌شود */
 .p-speeddial-opened .p-speeddial-button {
   transform: rotate(135deg);
 }
 
-/* استایل‌های آیتم‌های SpeedDial */
 .p-speeddial-action {
   background-color: #fff;
-  border: 1px solid #4CAF50;
+  color: #333;
+  border: 1px solid #333;
   opacity: 0;
   transform: scale(0.5);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
+
 .pi {
   font-family: 'primeicons', sans-serif !important;
 }
-.buttonlan{
-  margin-top: 10%;
-  display: flex;
-  justify-content: space-evenly;
+
+.buttonlan button{
+ margin: 0 10px;
+ color: #fff !important;
+ background-color: #4f93bb;
+}
+body.light  .p-speeddial-button {
+  background-color: rgb(250, 252, 140);
+  border-radius: 50%;
+  outline: none;
+  box-shadow: none;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  color: #333;
+}
+body.dark .p-speeddial-button {
+  background-color: #d6edf8;
+  border-radius: 50%;
+  outline: none;
+  box-shadow: none;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  color: #333;
+}
+body.light .card {
+  background-image: url("../../assets/1.jpg");
+}
+
+body.dark .card {
+  background-image: url("../../assets/2.jpg");
 }
