@@ -10,12 +10,12 @@ const GlitterParticles = ({ theme }) => {
     const options = {
         fullScreen: { enable: true, zIndex: -1 },
         background: {
-            color: theme === "dark" ? "#000000" : "#ffffff", // بک‌گراند سیاه یا سفید
+            color: theme === "dark" ? "#000000" : "#ffffff", 
         },
         particles: {
             number: { value: 200, density: { enable: true, area: 800 } },
             color: {
-                value: theme === "dark" ? "#FFD700" : "#f0f", // طلایی یا صورتی
+                value: theme === "dark" ? "#FFD700" : "#f0f", 
             },
             shape: { type: "circle" },
             opacity: { value: 0.8, random: true },
