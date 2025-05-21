@@ -11,6 +11,8 @@ import { InputSwitch } from 'primereact/inputswitch';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import GlitterParticles from './components/GlitterParticles';
+
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -34,6 +36,7 @@ function App() {
         <span style={{ fontSize: '0.9rem' }}>{theme === 'light' ? '☀️' : '🌙'}</span>
         <InputSwitch checked={theme === 'dark'} onChange={toggleTheme} />
       </div>
+      <GlitterParticles theme={theme} />
       <Header />
       <AboutMe />
       <Work />

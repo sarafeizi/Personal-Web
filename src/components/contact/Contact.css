@@ -81,7 +81,9 @@ form {
 .rtl-steps {
   direction: rtl;
 }
-
+.p-steps .p-steps-item.p-highlight .p-steps-number{
+  background-color: #7dc8fa;
+}
 @media (max-width: 768px) {
   .p-field-editor {
     width: 70%;

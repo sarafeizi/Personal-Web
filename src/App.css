@@ -36,3 +36,6 @@ h2 {
   align-items: center;
   gap: 0.5rem;
 }
+.p-inputswitch.p-highlight .p-inputswitch-slider{
+  background-color: #7dc8fa;
+}

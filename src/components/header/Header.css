@@ -94,8 +94,14 @@
  color: #fff !important;
  background-color: #4f93bb;
 }
+.buttonlan button:hover{
+  margin: 0 10px;
+  color: #fff !important;
+  background-color: #559dc7;
+ }
+
 body.light  .p-speeddial-button {
-  background-color: rgb(250, 252, 140);
+  background-color: rgb(253, 255, 133);
   border-radius: 50%;
   outline: none;
   box-shadow: none;

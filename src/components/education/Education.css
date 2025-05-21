@@ -1,44 +1,73 @@
-.animated-card {
+.fade-in-left {
   opacity: 0;
-  transition: all 0.8s ease-out;
-  will-change: transform, opacity;
-}
-
-.animated-card.hidden {
-  opacity: 0;
-}
-
-.animated-card.fade-in {
-  opacity: 1;
-}
-
-.animated-card.left {
-  transform: translateX(50px);
-}
-
-.animated-card.right {
   transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.animated-card.fade-in.left,
-.animated-card.fade-in.right {
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+  opacity: 1;
   transform: translateX(0);
 }
 
+@media screen and (max-width: 991px) {
+  .customized-timeline .p-timeline-event:nth-child(even) {
+    flex-direction: row !important;
+  }
+
+  .customized-timeline .p-timeline-event:nth-child(even) .p-timeline-event-content {
+    text-align: left !important;
+  }
+
+  .customized-timeline .p-timeline-event-opposite {
+    flex: 0;
+  }
+
+  .customized-timeline .p-card {
+    margin-top: 1rem;
+  }
+
+  .customized-timeline .p-card.fade-in-left,
+  .customized-timeline .p-card.fade-in-right {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .customized-timeline .p-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .customized-timeline.rtl {
+    direction: rtl;
+  }
+
+  .customized-timeline.rtl .p-card,
+  .customized-timeline.rtl .p-timeline-event-content {
+    text-align: right;
+  }
+
+}
 
 body.light .p-card {
-   background-color: #ffffff;
-   color: #333;
- }
+  background-color: #ffffff;
+  color: #333;
+}
 
- body.dark .p-card {
-   background-color: #1e1e1e;
-   color: #ffffff;
- }
+body.dark .p-card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
 
- body.light .pi-graduation-cap,
- body.light .pi-book,
- body.dark .pi-graduation-cap,
- body.dark .pi-book {
-   color: #333;
- }
+body.light .pi-graduation-cap,
+body.light .pi-book,
+body.dark .pi-graduation-cap,
+body.dark .pi-book {
+  color: #333;
+}
